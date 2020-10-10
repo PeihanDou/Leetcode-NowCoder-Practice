@@ -2,28 +2,28 @@
 # candidates 里数字可能重复，combination一个数字只能用一次
 # dfs搜索
 def combinationSum2(candidates, target):
-    used_index = set()
-    res = []
-    
-    def dfs(target, path, start):
-        if target == 0:
-            if path not in res:    
-                res.append(path)
+    def combine_sum_2(nums, start, path, result, target):
+        if not target:
+            result.append(path)
             return
-        for i in range(start, len(candidates)): # 每次从start的地方开始遍历，并忽略连续的相同数字，因为一个数字只能用一次
-            if candidates[i] > target:
-                break
-            if i > start and candidates[i] == candidates[i-1] : # 忽略连续的相同数字，因为一个数字只能用一次
+        
+        for i in range(start, len(nums)):
+            if i > start and nums[i] == nums[i - 1]: # 只有i大于start的时候才判断这个，因为i不大于start的话，认为是candidate里的新的一个数字
+            ## 例如[2,2,2], i = start = 0,过这个判断，进下一层（下一层就是[2,2]了！）
+            ## 但是回来的时候， i=1 > start，这时才判断是重复的（因为之前的递归已经把重复的数字用掉了）
                 continue
-            if i not in used_index:
-                used_index.add(i)
-                dfs(target - candidates[i], path+[candidates[i]], i+1)
-                used_index.remove(i)
-                
-    candidates = sorted(candidates)
-    dfs(target, [], 0)
-    return res
+            if nums[i] > target:
+                break
+            combine_sum_2(nums, i + 1, path + [nums[i]], 
+                               result, target - nums[i])
 
+    # Sorting is really helpful, se we can avoid over counting easily
+    candidates.sort()                      
+    result = []
+    combine_sum_2(candidates, 0, [], result, target)
+    return result
+    
+    
 '''
 Find all valid combinations of k numbers that sum up to n such that the following conditions are true:
 
