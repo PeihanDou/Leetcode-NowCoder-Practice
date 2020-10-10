@@ -16,12 +16,12 @@ def search(nums, target):
             # 这个时候mid到h再到l是都相等的，判断会出问题，应移动l使得nums[l]!=nums[mid]为止。
             while l < mid and nums[l] == nums[mid]: # tricky part
                 l += 1
-            if nums[l] <= nums[mid]:
+            if nums[l] <= nums[mid]: # 第一部分是顺序的
                 if nums[l] <= target < nums[mid]:
                     h = mid-1
                 else:
                     l = mid+1
-            else:
+            else: #第二部分是顺序的
                 if nums[mid] < target <= nums[h]:
                     l = mid+1
                 else:
