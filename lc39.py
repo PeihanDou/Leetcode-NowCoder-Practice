@@ -1,5 +1,5 @@
 # 找到所有组合，加起来等于target的组合
-# candidates 里数字各不相同，combination可以重复利用一个数字
+# candidates 里数字各不相同，combination可以重复利用candidates的数字
 # dfs搜索
 def combinationSum(candidates, target):
     def dfs(target, path):
