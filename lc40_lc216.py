@@ -38,14 +38,14 @@ Return a list of all possible valid combinations. The list must not contain the 
 # 不满足终止条件时， k>0 or target > 0:在剩余的nums里选一个数，调用下一层dfs
 # 你妈的，为啥我就想不到如此优雅的方法。我操了！
 def combinationSum3(k, n):
-    def dfs(target, nums, k, path):
+    def dfs(target, nums, k, path, ret):
         if k < 0 or target < 0:
             return
         if k==0 and target==0:
             ret.append(path)
         for i in range(len(nums)):
-            dfs(target - nums[i], nums[i+1:], k-1, path+[nums[i]])
-            
-    ret = []
-    dfs(n, range(1,10), k, [])
-    return ret
+            dfs(target - nums[i], nums[i+1:], k-1, path+[nums[i]], ret)
+        return ret
+    return dfs(n, range(1,10), k, [], [])
+
+

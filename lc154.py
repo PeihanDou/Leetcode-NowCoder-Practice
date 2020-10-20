@@ -13,6 +13,9 @@ def findMin(nums):
         while l < r:
             mid = (l+r)//2
             min_num = min(min_num, nums[mid])
+            '''
+            This means the right part is all same numbers, ser r so that ignore the duplicated number
+            '''
             while r > mid and nums[r] == nums[mid]: # trick part
                 r -= 1
             if nums[r] < nums[mid]: # first part in order
