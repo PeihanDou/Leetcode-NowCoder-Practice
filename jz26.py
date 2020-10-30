@@ -10,9 +10,13 @@ class Solution:
 #         self.root = None
     def Convert(self, pRootOfTree):
         # write code here
+        # 终止条件
         if pRootOfTree == None:
-            return 
+            return
+        # 中序遍历，左子树
+        # 左右孩子都有的节点不用调整指针 
         self.Convert(pRootOfTree.left)
+        # 第一次是最左边的叶节点，下一次是对应的兄弟节点（如果有的话）
         if self.prev != None:
             pRootOfTree.left = self.prev
             self.prev.right = pRootOfTree
