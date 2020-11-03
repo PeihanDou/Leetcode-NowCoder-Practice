@@ -38,10 +38,10 @@ def mergesort(nums):
 def merge(l, r):
     m = []
     while len(l) and len(r):
-        if l[0] < r[0]:
-            m.append(l.pop(0))
-        else:
+        if l[0] > r[0]:
             m.append(r.pop(0))
+        else:
+            m.append(l.pop(0))
     if l:
         m += l
     if r:
@@ -95,4 +95,4 @@ def buildMaxheap(n):
     
 # test
 print(n)
-print(heapsort(n))
+print(mergesort(n))
