@@ -1,4 +1,4 @@
-n = [5,3,2,6,4,1]
+n = [5,3,2,6,4,1,23,53,4,64,2,5,25,43,4]
 
 def switch_sort(nums):
     for i in range(len(nums)-1):
@@ -54,7 +54,23 @@ def quicksort(nums, l, h):
         quicksort(nums, l, p-1)
         quicksort(nums, p+1, h)
     return nums
-    
+
+def quicksort1(nums, l, h):
+    if l < h:
+        p = partition(nums, l, h)
+        quicksort1(nums, l, p-1)
+        quicksort1(nums, p+1, h)
+    return nums
+def patition1(nums, l, h):
+    pivot = nums[h]
+    i = l
+    for j in range(l, h):
+        if nums[pivot] > nums[j]:
+            nums[j], nums[i] = nums[i], nums[j]
+            i += 1
+    nums[pivot], nums[i] = nums[i], nums[pivot]
+    return i
+        
 def partition(nums, l, h):
     pivot = nums[h]
     i = l-1
@@ -95,4 +111,4 @@ def buildMaxheap(n):
     
 # test
 print(n)
-print(mergesort(n))
+print(quicksort1(n, 0, len(n)-1))

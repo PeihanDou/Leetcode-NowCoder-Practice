@@ -1,5 +1,6 @@
 
 '''
+#####好题#######
 输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4
 '''
 # 快速排序，更改终止条件
@@ -18,11 +19,11 @@ def GetLeastNumbers_Solution(tinput, k):
         if k==0 or len(tinput) < k: return []
         while l < r:
             p = patition(tinput, l, r)
-            if p+1 == k:
+            if p+1 == k: #前p+1个为k个最小的数
                 return tinput[:k]
-            elif p+1 < k:
+            elif p+1 < k: # 前p+1个数是最小的p+1个，不够k个
                 l = p+1
-            elif p+1 > k:
+            elif p+1 > k: # 最小的k个数在前p+1个里面
                 r = p
         return []
 a = [5,2,4,1,3,6,3,7]

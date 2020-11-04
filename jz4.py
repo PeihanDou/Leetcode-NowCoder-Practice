@@ -26,6 +26,17 @@ def reConstructBinaryTree(pre, tin):
         root.right = reConstructBinaryTree(pre[1+idx:], tin[idx+1:])
         return root
 
+def rebuild(pre, tin):
+    if len(pre) == 0:
+        return None
+    if len(pre) == 1:
+        return TreeNode(pre[0])
+    root = TreeNode(pre[0])
+    index = tin.index(pre[0])
+    root.left = rebuild(pre[1:1+index], tin[:index])
+    root.right = rebuild(pre[1+index:], tin[index+1:])
+    return root
+
 
 
 # for test
@@ -38,6 +49,6 @@ def pretravel(root, res):
         pretravel(root.right, res)
     return res
 
-tree = reConstructBinaryTree(pre, tin)
+tree = rebuild(pre, tin)
 
 print(pretravel(tree, []))

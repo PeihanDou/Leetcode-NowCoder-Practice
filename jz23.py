@@ -1,4 +1,5 @@
 '''
+#######好题######
 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
 如果是则返回true,否则返回false。假设输入的数组的任意两个数字都互不相同。
 '''
@@ -15,7 +16,7 @@ def isBST(seq, start, end):
     pivot = start
     while pivot < end and seq[pivot] < seq[end]:
         pivot += 1
-    if min(seq[pivot:end+1]) < seq[end]: return False
+    if min(seq[pivot:end+1]) < seq[end]: return False # 右子树有比end小的数， 不是BST 或者 左子树没遍历完就碰到比end大的数， 同样不是BST
     return isBST(seq, start, pivot-1) and isBST(seq, pivot, end-1)
 
 # 单调栈 O(n)
