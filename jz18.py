@@ -40,3 +40,4 @@ def printMatrix(matrix):
 a = [[1,3,2],[2,3,6], [2,7,8]]
 
 print(printMatrix(a))
+print('test')
