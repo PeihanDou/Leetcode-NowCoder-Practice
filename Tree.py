@@ -88,7 +88,7 @@ def postorder_flat(root):
                 lastNode=node
             elif s[-1].right: #如果当前节点的右节点没有访问过，则当前节点入栈
                 s.append(s[-1].right)
-                break
+                break #对新入栈的节点，重复走到最左边节点的过程
     return res
 
 a = [1,2,3,4,5,6,7]
