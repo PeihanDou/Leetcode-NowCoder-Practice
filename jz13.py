@@ -8,11 +8,11 @@ def reOrderArray(array):
         # write code here
         odd_id = 0
         for j in range(len(array)):
+            # 遍历数组，如果遇上奇数，则[odd_id:j]之间的数都往后移一格
             if array[j] % 2 != 0:
                 temp = array[j]
-                for k in range(j-1, odd_id-1, -1):
-                    print(k)
-                    array[k+1] = array[k]
+                # 整体后移一位
+                array[odd_id+1:j+1] = array[odd_id:j]
                 array[odd_id] = temp
                 odd_id += 1
 a = [1,2,3,4,5,6,7]
