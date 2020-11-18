@@ -25,3 +25,4 @@ def FindNumsAppearOnce(array):
 
 a = [1,3,2,2,4,4,6,6]
 print(FindNumsAppearOnce(a))
+

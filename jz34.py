@@ -21,7 +21,7 @@ def InversePairs(data):
         while len(l) and len(r):
             if l[0] > r[0]:
                 m.append(r.pop(0))
-                res[-1] += len(l)
+                res[-1] += len(l) # critical part
                 res[-1] %= 1000000007
             else:
                 m.append(l.pop(0))

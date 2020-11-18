@@ -7,7 +7,7 @@
 
 # 动态规划
 # 维护三个指针，每次取min([res[p2]*2, res[p3]*3, res[p5]*5])作为新的值，而对应的p加一（乘p的紧接着大一点的数）
-def GetUglyNumber_Solution(self, index):
+def GetUglyNumber_Solution(index):
     # write code here
     if index <= 0: return 0
     p2, p3, p5 = 0,0,0
@@ -19,3 +19,4 @@ def GetUglyNumber_Solution(self, index):
         if res[i] == res[p3]*3: p3 += 1
         if res[i] == res[p5]*5: p5 += 1
     return res[-1]
+print(GetUglyNumber_Solution(8))

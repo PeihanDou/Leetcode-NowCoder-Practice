@@ -32,6 +32,9 @@ def isBST(seq, start, end):
 # 将入栈操作理解为一个指针指向其右孩子
 # 弹栈就是回到父节点的过程
 
+# 注意点： stack初始要有一个-inf
+# sequence要从后往前走（前序的话，就是从前往后）
+
 # 试着写出前序遍历的版本？
 def VerifySquenceOfBST1(self, sequence):
     # write code here
