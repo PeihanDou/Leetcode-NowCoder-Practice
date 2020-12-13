@@ -15,6 +15,7 @@ def match(self, s, p):
     dp = [[0] * (len(s)+1) for _ in range(len(p)+1)]
     dp[0][0] = 1
     for i in range(1, len(p)+1):
+        # 如果p是空字符串，则不匹配任何空字符串
         for j in range(len(s)+1):
             if p[i-1] != "*":
                 if j > 0 and (s[j-1]==p[i-1] or p[i-1] == "."):
